@@ -3,6 +3,12 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\InferenceController;
+use App\Http\Controllers\SymptomController;
+use App\Http\Controllers\DiagnosisController;
+
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -42,3 +48,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
 Route::middleware('admin')->prefix('admin')->group(function () {
     Route::get('/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
 });
+
+
+// Rute untuk menghasilkan hasil diagnosis
+Route::get('/diagnosis', [DiagnosisController::class, 'showForm'])->name('diagnosis.form');
+
+Route::post('/diagnosis', [DiagnosisController::class, 'generateResult'])->name('diagnosis.generate');
