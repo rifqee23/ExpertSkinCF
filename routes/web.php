@@ -42,15 +42,34 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+
+    Route::get('/diagnosis', [DiagnosisController::class, 'showForm'])->name('diagnosis.form');
+
+    Route::post('/diagnosis', [DiagnosisController::class, 'generateResult'])->name('diagnosis.generate');
+
+    Route::get('/riwayat', function () {
+        // Data contoh untuk riwayat diagnosa
+        $diagnosisHistory = [
+            [
+                'disease' => 'Penyakit A',
+                'date' => '2024-12-12',
+                'symptoms' => ['Gejala 1', 'Gejala 2', 'Gejala 3'],
+                'solutions' => ['Solusi 1', 'Solusi 2']
+            ],
+            [
+                'disease' => 'Penyakit B',
+                'date' => '2024-12-10',
+                'symptoms' => ['Gejala 1', 'Gejala 2'],
+                'solutions' => ['Solusi 1', 'Solusi 2']
+            ]
+        ];
+
+        // Mengirim data ke tampilan riwayat
+        return view('riwayat.riwayat', compact('diagnosisHistory'));
+    })->name('riwayat');
 });
 
 
 Route::middleware('admin')->prefix('admin')->group(function () {
     Route::get('/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
 });
-
-
-// Rute untuk menghasilkan hasil diagnosis
-Route::get('/diagnosis', [DiagnosisController::class, 'showForm'])->name('diagnosis.form');
-
-Route::post('/diagnosis', [DiagnosisController::class, 'generateResult'])->name('diagnosis.generate');
