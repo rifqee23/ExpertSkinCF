@@ -1,7 +1,7 @@
 <nav class="flex flex-wrap items-center justify-between p-3 bg-sky-200 sticky top-0 z-50">
     <div class="flex items-center">
-        <img src="/assets/img/logoc.png" alt="Logo" class="h-12 mr-3">
-        <div class="text-xl">ExpertSkincf</div>
+        <img src="/assets/img/logo.png" alt="Logo" class="h-16 mr-4"> <!-- Ukuran logo diperbesar -->
+        <div class="text-2xl font-bold">ExpertSkincf</div> <!-- Ukuran teks juga diperbesar -->
     </div>
     <div class="flex md:hidden">
         <button id="hamburger">

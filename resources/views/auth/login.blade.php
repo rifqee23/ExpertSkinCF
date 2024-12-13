@@ -4,10 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="icon" href="/assets/img/" type="image/png">
+    <link rel="icon" href="/assets/img/logo.png" type="image/png">
     @vite('resources/css/app.css')
+    <!-- Add FontAwesome for the eye icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
-<body class="bg-blue-500">
+<body class="bg-sky-500">
 
     <div class="min-h-screen flex items-center justify-center">
         <!-- Login Container -->
@@ -21,7 +23,7 @@
 
             <!-- Logo -->
             <div class="text-center">
-                <img src="/assets/img/logoc.png" alt="Logo" class="w-20 mx-auto mb-4">
+                <img src="/assets/img/logo.png" alt="Logo" class="w-20 mx-auto mb-4">
                 <h1 class="text-2xl font-bold text-gray-800">Login</h1>
             </div>
 
@@ -32,7 +34,7 @@
                 <!-- Email -->
                 <div class="space-y-2">
                     <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
-                    <input id="email" name="email" type="email" value="{{ old('email') }}" required autocomplete="email" class="block w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
+                    <input id="email" name="email" type="email" value="{{ old('email') }}" required autocomplete="email" class="block w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-sky-500">
                     <!-- Error message for email -->
                     @if($errors->has('email'))
                         <p class="text-red-600 text-sm mt-1">{{ $errors->first('email') }}</p>
@@ -40,9 +42,11 @@
                 </div>
 
                 <!-- Password -->
-                <div class="space-y-2 mt-4">
+                <div class="space-y-2 mt-4 relative">
                     <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
-                    <input id="password" name="password" type="password" required autocomplete="current-password" class="block w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
+                    <input id="password" name="password" type="password" required autocomplete="current-password" class="block w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-sky-500">
+                    <!-- Icon to toggle password visibility -->
+                    <i id="toggle-password" class="fas fa-eye absolute right-3 top-10 cursor-pointer text-gray-600"></i>
                     <!-- Error message for password -->
                     @if($errors->has('password'))
                         <p class="text-red-600 text-sm mt-1">{{ $errors->first('password') }}</p>
@@ -52,7 +56,7 @@
                 <!-- Remember Me -->
                 <div class="flex items-center justify-between mt-4">
                     <label for="remember_me" class="flex items-center">
-                        <input id="remember_me" name="remember" type="checkbox" class="h-4 w-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500">
+                        <input id="remember_me" name="remember" type="checkbox" class="h-4 w-4 text-sky-600 border-gray-300 rounded focus:ring-indigo-500">
                         <span class="ml-2 text-sm text-gray-600">Ingat saya</span>
                     </label>
                     
@@ -63,17 +67,32 @@
 
                 <!-- Submit Button -->
                 <div class="mt-6">
-                    <button type="submit" class="w-full py-3 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-700 transition duration-300">Login</button>
+                    <button type="submit" class="w-full py-3 bg-sky-500 text-white font-semibold rounded-lg hover:bg-sky-700 transition duration-300">Login</button>
                 </div>
             </form>
 
             <!-- Sign Up Link -->
             <p class="text-center text-sm text-gray-600 mt-4">
                 Belum punya akun? 
-                <a href="{{ route('register') }}" class="text-blue-600 hover:underline">Buat akun</a>
+                <a href="{{ route('register') }}" class="text-sky-600 hover:underline">Buat akun</a>
             </p>
         </div>
     </div>
+
+    <!-- JavaScript to toggle password visibility -->
+    <script>
+        const togglePassword = document.getElementById('toggle-password');
+        const passwordField = document.getElementById('password');
+
+        togglePassword.addEventListener('click', function() {
+            // Toggle password visibility
+            const type = passwordField.type === 'password' ? 'text' : 'password';
+            passwordField.type = type;
+
+            // Toggle eye icon
+            togglePassword.classList.toggle('fa-eye-slash');
+        });
+    </script>
 
 </body>
 </html>
