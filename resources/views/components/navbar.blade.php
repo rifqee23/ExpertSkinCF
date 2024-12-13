@@ -1,6 +1,6 @@
-<nav class="flex flex-wrap items-center justify-between p-3 bg-[#e8e8e5]">
+<nav class="flex flex-wrap items-center justify-between p-3 bg-sky-200 sticky top-0 z-50">
     <div class="flex items-center">
-        <img src="/assets/img/" alt="Logo" class="h-10 mr-3">
+        <img src="/assets/img/logoc.png" alt="Logo" class="h-12 mr-3">
         <div class="text-xl">ExpertSkincf</div>
     </div>
     <div class="flex md:hidden">
@@ -10,11 +10,12 @@
         </button>
     </div>
     <div class="toggle hidden w-full md:w-auto md:flex text-right text-bold mt-5 md:mt-0 md:border-none">
-        <a href="#home" class="block md:inline-block hover:text-blue-500 px-3 py-3 md:border-none">Beranda</a>
-        <a href="#aboutus" class="block md:inline-block hover:text-blue-500 px-3 py-3 md:border-none">Tentang Kami</a>
-        <a href="#fields" class="block md:inline-block hover:text-blue-500 px-3 py-3 md:border-none">Lapangan</a>
-        <a href="#layanan" class="block md:inline-block hover:text-blue-500 px-3 py-3 md:border-none">Layanan</a>
-        <a href="#contactUs" class="block md:inline-block hover:text-blue-500 px-3 py-3 md:border-none">Lokasi</a>
+        <a href="{{ url('/') }}#home" class="block md:inline-block hover:text-sky-300 px-3 py-3 md:border-none {{ Request::is('/') ? 'bg-sky-700 rounded text-white' : '' }}">Beranda</a>
+        <a href="{{ route('diagnosis.form') }}" 
+        class="block md:inline-block hover:text-sky-300 px-3 py-3 md:border-none {{ Route::currentRouteName() == 'diagnosis.form' || Request::is('diagnosis*') ? 'bg-sky-700 rounded text-white' : '' }}">
+         Diagnosis
+        </a>
+        <a href="{{ route('riwayat') }}" class="block md:inline-block hover:text-sky-300 px-3 py-3 md:border-none {{ Request::is('*#riwayat') ? 'bg-sky-700 rounded text-white' : '' }}">Riwayat</a>
     </div>
 
     <div class="toggle w-full text-end hidden md:flex md:w-auto px-2 py-2 md:rounded">
@@ -23,13 +24,13 @@
                 <span class="text-gray-700">Hello, {{ Auth::user()->name }}!</span>
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
-                    <button type="submit" class="flex items-center h-10 w-30 rounded-md bg-blue-500 hover:bg-blue-700 text-white font-medium p-2">
+                    <button type="submit" class="flex items-center h-10 w-30 rounded-md bg-sky-500 hover:bg-sky-700 text-white font-medium p-2">
                         Log Out
                     </button>
                 </form>
             </div>
         @else
-            <a href="{{ route('login') }}" class="flex items-center h-10 w-30 rounded-md bg-blue-500 hover:bg-blue-700 text-white font-medium p-2">
+            <a href="{{ route('login') }}" class="flex items-center h-10 w-30 rounded-md bg-sky-500 hover:bg-sky-700 text-white font-medium p-2">
                 Log In
             </a>
         @endauth

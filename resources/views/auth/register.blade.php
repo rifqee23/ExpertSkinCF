@@ -21,7 +21,7 @@
 
             <!-- Logo -->
             <div class="text-center">
-                <img src="/assets/img/logof.png" alt="Logo" class="w-20 mx-auto mb-4">
+                <img src="/assets/img/logoc.png" alt="Logo" class="w-20 mx-auto mb-4">
                 <h1 class="text-2xl font-bold text-gray-800">Create Your Account</h1>
             </div>
 
@@ -31,8 +31,8 @@
 
                 <!-- Name -->
                 <div class="space-y-2">
-                    <label for="name" class="block text-sm font-medium text-gray-700">Full Name</label>
-                    <input id="name" name="name" type="text" value="{{ old('name') }}" required autocomplete="name" class="block w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
+                    <label for="name" class="block text-sm font-medium text-gray-700">Nama Lengkap</label>
+                    <input id="name" name="name" type="text" value="{{ old('name') }}" required autocomplete="name" placeholder="Masukkan Nama Lengkap" class="block w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
                     <!-- Error message for name -->
                     @if($errors->has('name'))
                         <p class="text-red-600 text-sm mt-1">{{ $errors->first('name') }}</p>
@@ -41,8 +41,8 @@
 
                 <!-- Email -->
                 <div class="space-y-2 mt-4">
-                    <label for="email" class="block text-sm font-medium text-gray-700">Email Address</label>
-                    <input id="email" name="email" type="email" value="{{ old('email') }}" required autocomplete="email" class="block w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
+                    <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+                    <input id="email" name="email" type="email" value="{{ old('email') }}" required autocomplete="email" placeholder="Masukkan Email Anda" class="block w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
                     <!-- Error message for email -->
                     @if($errors->has('email'))
                         <p class="text-red-600 text-sm mt-1">{{ $errors->first('email') }}</p>
@@ -52,7 +52,7 @@
                 <!-- Password -->
                 <div class="space-y-2 mt-4">
                     <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
-                    <input id="password" name="password" type="password" required autocomplete="new-password" class="block w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
+                    <input id="password" name="password" type="password" required autocomplete="new-password" placeholder="Masukkan Password Anda 8 Karakter" class="block w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
                     <!-- Error message for password -->
                     @if($errors->has('password'))
                         <p class="text-red-600 text-sm mt-1">{{ $errors->first('password') }}</p>
@@ -62,22 +62,23 @@
                 <!-- Confirm Password -->
                 <div class="space-y-2 mt-4">
                     <label for="password_confirmation" class="block text-sm font-medium text-gray-700">Confirm Password</label>
-                    <input id="password_confirmation" name="password_confirmation" type="password" required autocomplete="new-password" class="block w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
+                    <input id="password_confirmation" name="password_confirmation" type="password" required autocomplete="new-password" placeholder="Konfirmasi Password" class="block w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
                     <!-- Error message for password confirmation -->
                     @if($errors->has('password_confirmation'))
                         <p class="text-red-600 text-sm mt-1">{{ $errors->first('password_confirmation') }}</p>
                     @endif
                 </div>
 
+
                 <!-- Submit Button -->
                 <div class="mt-6">
-                    <button type="submit" class="w-full py-3 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-700 transition duration-300">Register</button>
+                    <button type="submit" class="w-full py-3 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-700 transition duration-300">Buat Akun</button>
                 </div>
             </form>
 
             <!-- Login Link -->
             <p class="text-center text-sm text-gray-600 mt-4">
-                Already have an account? 
+                Sudah Punya Akun? 
                 <a href="{{ route('login') }}" class="text-blue-600 hover:underline">Login</a>
             </p>
         </div>
