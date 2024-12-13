@@ -46,7 +46,9 @@
                 <div class="mt-6 text-center space-x-4">
                     <!-- Tombol Kembali ke Home -->
                     <a href="{{ url('/') }}" class="bg-sky-500 hover:bg-sky-700 text-white font-bold py-2 px-6 rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-opacity-50">
-                        Kembali ke Home
+
+                        Kembali
+
                     </a>
 
                     <!-- Tombol Tes Ulang -->
