@@ -5,6 +5,7 @@
 @section('content')
     @include('components.navbar')
 
+
     <!-- Hero Section -->
     <div id="home" class="relative bg-cover bg-center h-screen" style="background-image: url('/assets/img/home.jpg');">
         <!-- Overlay -->
@@ -31,6 +32,7 @@
 
         <!-- Feature #1 -->
         <div class="relative mt-20 lg:mt-24 animate-fade-up">
+
             <div class="container flex flex-col lg:flex-row items-center justify-center gap-x-24 mx-auto">
                 <!-- Image -->
                 <div class="flex flex-1 justify-center z-10 mb-10 lg:mb-0">
@@ -91,11 +93,13 @@
     <section id="team" class="py-20 mt-40 px-4 md:px-8 lg:px-16 bg-sky-700">
         <!-- Judul -->
         <div class="sm:w-3/4 lg:w-5/12 mx-auto px-2 animate-fade-up">
+
             <h1 class="text-3xl text-center text-white font-bold">Tim Kami</h1>
             <p class="text-center text-white mt-4">
                 Kenali para profesional berdedikasi yang ada di balik kesuksesan kami. Tim kami penuh semangat, terampil, dan berkomitmen untuk memberikan yang terbaik.
             </p>
         </div>
+
 
         <!-- Kartu Tim -->
         <div class="container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 max-w-screen-lg mt-16 mx-auto">

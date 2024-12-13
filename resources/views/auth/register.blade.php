@@ -23,8 +23,10 @@
 
             <!-- Logo -->
             <div class="text-center">
+
                 <img src="/assets/img/logo.png" alt="Logo" class="w-20 mx-auto mb-4">
                 <h1 class="text-2xl font-bold text-gray-800">Buat Akun</h1>
+
             </div>
 
             <!-- Form -->
@@ -34,7 +36,9 @@
                 <!-- Name -->
                 <div class="space-y-2">
                     <label for="name" class="block text-sm font-medium text-gray-700">Nama Lengkap</label>
+
                     <input id="name" name="name" type="text" value="{{ old('name') }}" required autocomplete="name" placeholder="Masukkan nama lengkap" class="block w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-sky-500">
+
                     <!-- Error message for name -->
                     @if($errors->has('name'))
                         <p class="text-red-600 text-sm mt-1">{{ $errors->first('name') }}</p>
@@ -44,7 +48,9 @@
                 <!-- Email -->
                 <div class="space-y-2 mt-4">
                     <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+
                     <input id="email" name="email" type="email" value="{{ old('email') }}" required autocomplete="email" placeholder="Masukkan email anda" class="block w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-sky-500">
+
                     <!-- Error message for email -->
                     @if($errors->has('email'))
                         <p class="text-red-600 text-sm mt-1">{{ $errors->first('email') }}</p>
@@ -54,9 +60,11 @@
                 <!-- Password -->
                 <div class="space-y-2 mt-4 relative">
                     <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
+
                     <input id="password" name="password" type="password" required autocomplete="new-password" placeholder="Password minimal 8 karakter" class="block w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-sky-500">
                     <!-- Icon to toggle password visibility -->
                     <i id="toggle-password" class="fas fa-eye absolute right-3 top-10 cursor-pointer text-gray-600"></i>
+
                     <!-- Error message for password -->
                     @if($errors->has('password'))
                         <p class="text-red-600 text-sm mt-1">{{ $errors->first('password') }}</p>
@@ -66,25 +74,32 @@
                 <!-- Confirm Password -->
                 <div class="space-y-2 mt-4 relative">
                     <label for="password_confirmation" class="block text-sm font-medium text-gray-700">Confirm Password</label>
+
                     <input id="password_confirmation" name="password_confirmation" type="password" required autocomplete="new-password" placeholder="Masukkan ulang password" class="block w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-sky-500">
                     <!-- Icon to toggle password visibility -->
                     <i id="toggle-confirm-password" class="fas fa-eye absolute right-3 top-10 cursor-pointer text-gray-600"></i>
+
                     <!-- Error message for password confirmation -->
                     @if($errors->has('password_confirmation'))
                         <p class="text-red-600 text-sm mt-1">{{ $errors->first('password_confirmation') }}</p>
                     @endif
                 </div>
 
+
                 <!-- Submit Button -->
                 <div class="mt-6">
+
                     <button type="submit" class="w-full py-3 bg-sky-500 text-white font-semibold rounded-lg hover:bg-sky-700 transition duration-300">Buat Akun</button>
+
                 </div>
             </form>
 
             <!-- Login Link -->
             <p class="text-center text-sm text-gray-600 mt-4">
                 Sudah Punya Akun? 
+
                 <a href="{{ route('login') }}" class="text-sky-600 hover:underline">Login</a>
+
             </p>
         </div>
     </div>
