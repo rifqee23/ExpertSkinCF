@@ -73,3 +73,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
 Route::middleware('admin')->prefix('admin')->group(function () {
     Route::get('/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
 });
+
+Route::get('/akurasi', [DiagnosisController::class, 'showAccuracy'])->name('diagnosis.showAccuracy');
+
+
+Route::post('/diagnosis/delete', [DiagnosisController::class, 'delete'])->name('diagnosis.delete');

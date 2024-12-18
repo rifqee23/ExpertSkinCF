@@ -10,33 +10,26 @@ use Illuminate\Support\Facades\Log;
 
 class DiagnosisController extends Controller
 {
-    // Metode untuk menampilkan form diagnosis
     public function showForm()
     {
-        // Ambil semua gejala dari database
         $symptoms = Symptom::all();
         
-        // Tampilkan view dengan data gejala
         return view('diagnosis.diagnosis_form', compact('symptoms'));
     }
 
-    // Metode untuk menghasilkan hasil diagnosis
     public function generateResult(Request $request)
     {
         // Validasi input
         $request->validate([
-            'evidence.*' => 'required|numeric|in:0.0,0.3,1.0', // Pastikan nilai evidence valid
+            'evidence.*' => 'required|numeric|in:0.0,0.3,1.0', 
         ]);
 
-        // Ambil data evidence dari input
         $evidence = $request->input('evidence');
 
-        // Ambil gejala yang dipilih
         $selectedSymptoms = array_keys($evidence);
 
         $result = null;
 
-        // Logika untuk menentukan penyakit berdasarkan gejala
         $matchedDiseases = $this->determineDisease($selectedSymptoms, $evidence, $result);
 
         $matchedDiseases = array_unique($matchedDiseases);
@@ -45,15 +38,13 @@ class DiagnosisController extends Controller
         foreach ($matchedDiseases as $diseaseName) {
         $disease = Disease::where('name', $diseaseName)->first();
         if ($disease) {
-            $solutions[$diseaseName] = $disease->solutions; // Ambil solusi untuk penyakit ini
+            $solutions[$diseaseName] = $disease->solutions; 
         }
     }
 
-        // Tampilkan hasil diagnosis
         return view('diagnosis.result', ['diseases' => $matchedDiseases, 'result' => $result, 'solutions' => $solutions]);
     }
 
-    // Metode untuk menentukan penyakit berdasarkan gejala dan evidence
     private function determineDisease($selectedSymptoms, $evidence, &$result)
     {
         $matchedDiseases = [];
@@ -61,16 +52,178 @@ class DiagnosisController extends Controller
 
         $rules = [
         [
-            'symptoms' => [1, 2],
-            'evidence' => [1, 2],
+            'symptoms' => [4, 5],
+            'evidence' => [4, 5],
             'cf_value' => 0.8,
-            'disease_name' => 'Penyakit A',
+            'disease_name' => 'Keloid',
         ],
-        // Tambahkan lebih banyak aturan sesuai kebutuhan
+        [
+            'symptoms' => [4, 5, 6],
+            'evidence' => [4, 5, 6],
+            'cf_value' => 0.8,
+            'disease_name' => 'Keloid',
+        ],
+        [
+            'symptoms' => [4, 5, 7],
+            'evidence' => [4, 5, 7],
+            'cf_value' => 0.8,
+            'disease_name' => 'Keloid',
+        ],
+        [
+            'symptoms' => [8, 9],
+            'evidence' => [8, 9],
+            'cf_value' => 0.6,
+            'disease_name' => 'Melasma',
+        ],
+        [
+            'symptoms' => [8, 9, 10],
+            'evidence' => [8, 9, 10],
+            'cf_value' => 0.8,
+            'disease_name' => 'Melasma',
+        ],
+        [
+            'symptoms' => [8, 9, 11],
+            'evidence' => [8, 9, 11],
+            'cf_value' => 0.8,
+            'disease_name' => 'Melasma',
+        ],
+        [
+            'symptoms' => [8, 9, 12],
+            'evidence' => [8, 9, 12],
+            'cf_value' => 0.8,
+            'disease_name' => 'Melasma',
+        ],
+        [
+            'symptoms' => [8, 9, 13],
+            'evidence' => [8, 9, 13],
+            'cf_value' => 0.6,
+            'disease_name' => 'Melasma',
+        ],
+        [
+            'symptoms' => [14, 15, 21],
+            'evidence' => [14, 15, 21],
+            'cf_value' => 0.8,
+            'disease_name' => 'Akne Vulgaris',
+        ],
+        [
+            'symptoms' => [14, 16],
+            'evidence' => [14, 16],
+            'cf_value' => 0.6,
+            'disease_name' => 'Akne Vulgaris',
+        ],
+        [
+            'symptoms' => [14, 17],
+            'evidence' => [14, 17],
+            'cf_value' => 0.6,
+            'disease_name' => 'Akne Vulgaris',
+        ],
+        [
+            'symptoms' => [14, 18],
+            'evidence' => [14, 18],
+            'cf_value' => 0.6,
+            'disease_name' => 'Akne Vulgaris',
+        ],
+        [
+            'symptoms' => [14, 19],
+            'evidence' => [14, 19],
+            'cf_value' => 0.8,
+            'disease_name' => 'Akne Vulgaris',
+        ],
+        [
+            'symptoms' => [14, 20],
+            'evidence' => [14, 20],
+            'cf_value' => 0.6,
+            'disease_name' => 'Akne Vulgaris',
+        ],
+        [
+            'symptoms' => [14, 15],
+            'evidence' => [14, 15],
+            'cf_value' => 0.8,
+            'disease_name' => 'Akne Vulgaris',
+        ],
+        [
+            'symptoms' => [7, 14, 15],
+            'evidence' => [7, 14, 15],
+            'cf_value' => 0.8,
+            'disease_name' => 'Akne Vulgaris',
+        ],
+        [
+            'symptoms' => [16, 22, 23],
+            'evidence' => [16, 22, 23],
+            'cf_value' => 0.6,
+            'disease_name' => 'Selulit',
+        ],
+        [
+            'symptoms' => [22, 23, 24],
+            'evidence' => [22, 23, 24],
+            'cf_value' => 0.8,
+            'disease_name' => 'Selulit',
+        ],
+        [
+            'symptoms' => [22, 23],
+            'evidence' => [22, 23],
+            'cf_value' => 0.6,
+            'disease_name' => 'Selulit',
+        ],  
+        [
+            'symptoms' => [22, 23, 25],
+            'evidence' => [22, 23, 25],
+            'cf_value' => 0.8,
+            'disease_name' => 'Selulit',
+        ],
+        [
+            'symptoms' => [26, 27, 29],
+            'evidence' => [26, 27, 29],
+            'cf_value' => 0.6,
+            'disease_name' => 'Penuaan Kulit',
+        ],
+        [
+            'symptoms' => [11, 27, 29],
+            'evidence' => [11, 27, 29],
+            'cf_value' => 0.8,
+            'disease_name' => 'Penuaan Kulit',
+        ],
+        [
+            'symptoms' => [20, 27, 29],
+            'evidence' => [20, 27, 29],
+            'cf_value' => 0.6,
+            'disease_name' => 'Penuaan Kulit',
+        ],
+        [
+            'symptoms' => [27, 29],
+            'evidence' => [27, 29],
+            'cf_value' => 0.6,
+            'disease_name' => 'Penuaan Kulit',
+        ],
+        [
+            'symptoms' => [27, 28, 29],
+            'evidence' => [27, 28, 29],
+            'cf_value' => 0.8,
+            'disease_name' => 'Penuaan Kulit',
+        ],
+        [
+            'symptoms' => [30, 31],
+            'evidence' => [30, 31],
+            'cf_value' => 0.8,
+            'disease_name' => 'Veruka Vulgaris',
+        ],
+        [
+            'symptoms' => [30, 31, 32],
+            'evidence' => [30, 31, 32],
+            'cf_value' => 0.6,
+            'disease_name' => 'Veruka Vulgaris',
+        ],
+        [
+            'symptoms' => [7, 30, 31, 32],
+            'evidence' => [7, 30, 31, 32],
+            'cf_value' => 0.6,
+            'disease_name' => 'Veruka Vulgaris',
+        ],
+       
     ];
+   
 
         foreach ($rules as $rule) {
-        // Cek apakah semua gejala yang diperlukan ada dalam input
         if (array_diff($rule['symptoms'], $selectedSymptoms) === []) {
             // Cek evidence
             $evidenceCheck = true;
@@ -82,16 +235,33 @@ class DiagnosisController extends Controller
             }
 
             if ($evidenceCheck) {
-                // Hitung nilai minimum dari evidence yang relevan
                 $minValue = min(array_intersect_key($evidence, array_flip($rule['evidence'])));
 
-                // Update cf_value dan simpan hasil
                 $disease = Disease::where('name', $rule['disease_name'])->first();
                 if ($disease) {
                     $disease->cf_value = $rule['cf_value'];
                     $disease->save();
                     $matchedDiseases[] = $disease->name;
-                    $result = $minValue * $disease->cf_value; // Simpan hasil perhitungan
+                    $result = $minValue * $disease->cf_value; 
+
+                    
+
+                    $filePath = storage_path('app/public/diagnosis.json');
+                    
+                    if (file_exists($filePath)) {
+                        $existingData = json_decode(file_get_contents($filePath), true);
+                    } else {
+                        $existingData = [];
+                    }
+
+                    $newData = ['disease' =>  $matchedDiseases, 'cf' => $result];
+
+                    $existingData[] = $newData;
+
+                    $jsonData = json_encode($existingData, JSON_PRETTY_PRINT);
+
+                    file_put_contents($filePath, $jsonData);
+                        
                 }
             }
         }
@@ -99,4 +269,61 @@ class DiagnosisController extends Controller
 
         return $matchedDiseases;
     }
+
+    public function showAccuracy() {
+        $filePath = storage_path('app/public/diagnosis.json');
+    
+        if (file_exists($filePath)) {
+            $jsonData = file_get_contents($filePath);
+            $matchedDiseases = json_decode($jsonData, true);
+           
+        } else {
+            $matchedDiseases = [];
+        }
+
+        $diseaseCounts = [];
+
+        foreach ($matchedDiseases as $entry) {
+            
+            $diseaseName = $entry['disease'][0];
+            $cfValue = $entry['cf']; 
+           
+            
+            if (isset($diseaseCounts[$diseaseName])) {
+                $diseaseCounts[$diseaseName] += $cfValue * (1 - $diseaseCounts[$diseaseName]);
+            } else {
+                $diseaseCounts[$diseaseName] = $cfValue;
+            }
+        }
+
+
+        
+
+            $finalResult = [];
+            foreach ($diseaseCounts as $disease => $cf) {
+                $finalResult[] = [
+                    'disease' => $disease,
+                    'cf' => number_format($cf * 100, 2) . '%',
+                ];
+            }
+
+        
+        
+    
+        return view('diagnosis.accuracy', compact('finalResult'));
+    }
+
+    public function delete()
+{
+    $filePath = storage_path('app/public/diagnosis.json');
+
+    if (file_exists($filePath)) {
+        unlink($filePath); 
+    }
+
+    return redirect()->route('diagnosis.form')->with('success', 'Data berhasil dihapus dan kembali ke halaman diagnosis.');
 }
+
+}
+
+
