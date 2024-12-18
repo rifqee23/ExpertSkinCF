@@ -47,7 +47,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::post('/diagnosis', [DiagnosisController::class, 'generateResult'])->name('diagnosis.generate');
 
-  
+    Route::get('/diagnosis/confirm', [DiagnosisController::class, 'confirm'])->name('diagnosis.confirm');
 
     Route::get('/riwayat', [DiagnosisController::class, 'showHistory'])->name('riwayat.history');
 

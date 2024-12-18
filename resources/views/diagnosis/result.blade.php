@@ -43,23 +43,21 @@
                 @endif
 
                 <!-- Tombol Kembali ke Home dan Tes Ulang -->
-                <div class="mt-6 text-center space-x-4">
+                <div class="mt-6 text-center flex flex-wrap justify-center gap-4">
                     <!-- Tombol Kembali ke Home -->
-                    <a href="{{ url('/') }}" class="bg-sky-500 hover:bg-sky-700 text-white font-bold py-2 px-6 rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-opacity-50">
-
+                    <a href="{{ url('/') }}" class="bg-sky-500 hover:bg-sky-700 text-white font-bold py-2 px-6 rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-opacity-50 w-full md:w-auto">
                         Kembali
-
                     </a>
-
+                
                     <!-- Tombol Tes Ulang -->
-                    <a href="{{ route('diagnosis.form') }}" class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-6 rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-50">
+                    <a href="{{ route('diagnosis.form') }}" class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-6 rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-50 w-full md:w-auto">
                         Tes Ulang
                     </a>
+                
                     <!-- Tombol Cek Akurasi -->
-                    <a href="{{ route('diagnosis.showAccuracy') }}" class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-6 rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-50">
+                    <a href="{{ route('diagnosis.showAccuracy') }}" class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-6 rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-50 w-full md:w-auto">
                         Cek Akurasi
                     </a>
-                    
                 </div>
             </div>
         </div>

@@ -343,6 +343,11 @@ public function showHistory()
     return view('riwayat.history', compact('histories'));
 }
 
+public function confirm()
+{
+    return view('diagnosis.confirm'); // Pastikan path ini sesuai dengan file Blade Anda
+}
+
 }
 
 

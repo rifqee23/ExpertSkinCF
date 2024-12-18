@@ -15,7 +15,7 @@
             <div class="text-center text-white">
                 <h1 class="text-4xl md:text-6xl font-bold mb-4">ExpertSkincf</h1>
                 <p class="text-lg md:text-xl mb-6">Sistem Pendeteksi Estetika Kulit Wanita dalam Menjaga Kesehatan</p>
-                <a href="{{ route('diagnosis.form') }}" class="bg-sky-500 hover:bg-sky-700 text-white font-bold py-3 px-6 rounded-full text-lg">Mulai Diagnosa</a>
+                <a href="{{ route('diagnosis.confirm') }}" class="bg-sky-500 hover:bg-sky-700 text-white font-bold py-3 px-6 rounded-full text-lg">Mulai Diagnosa</a>
             </div>
         </div>
     </div>
