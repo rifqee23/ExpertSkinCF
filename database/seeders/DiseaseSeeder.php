@@ -14,8 +14,14 @@ class DiseaseSeeder extends Seeder
     public function run(): void
     {
         DB::table('diseases')->insert([
-            ['name' => 'Penyakit A'],
-            ['name' => 'Penyakit B'],
+            ['name' => 'Keloid'],
+            ['name' => 'Melasma'],
+            ['name' => 'Akne Vulgaris'],
+            ['name' => 'Selulit'],
+            ['name' => 'Penuaan Kulit'],
+            ['name' => 'Veruka Vulgaris'],
         ]);
     }
 }
+
+

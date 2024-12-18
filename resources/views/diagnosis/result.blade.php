@@ -55,6 +55,11 @@
                     <a href="{{ route('diagnosis.form') }}" class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-6 rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-50">
                         Tes Ulang
                     </a>
+                    <!-- Tombol Cek Akurasi -->
+                    <a href="{{ route('diagnosis.showAccuracy') }}" class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-6 rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-50">
+                        Cek Akurasi
+                    </a>
+                    
                 </div>
             </div>
         </div>
