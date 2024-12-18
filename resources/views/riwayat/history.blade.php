@@ -19,7 +19,7 @@
                             <h2 class="text-xl font-semibold text-gray-800">Belum ada riwayat diagnosa.</h2>
                         </div>
                     @else
-                    @foreach($histories->sortBy('created_at') as $index => $history)
+                    @foreach($histories->sortByDesc('created_at') as $index => $history)
                         <div class="border-l-4 border-sky-500 p-4 bg-gray-50">
                             <h2 class="text-xl font-semibold text-gray-800">Diagnosa #{{ $index + 1 }}</h2>
                             <p class="mt-2 text-lg text-gray-700">Tanggal: {{ $history->created_at->format('d-m-Y H:i') }}</p>

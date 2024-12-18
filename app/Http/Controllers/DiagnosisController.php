@@ -339,7 +339,7 @@ class DiagnosisController extends Controller
 
 public function showHistory()
 {
-    $histories = \App\Models\History::orderBy('created_at', 'desc')->get();
+    $histories = \App\Models\History::orderBy('created_at', 'asc')->get();
     return view('riwayat.history', compact('histories'));
 }
 
