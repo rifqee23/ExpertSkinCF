@@ -19,20 +19,19 @@
                             <h2 class="text-xl font-semibold text-gray-800">Belum ada riwayat diagnosa.</h2>
                         </div>
                     @else
-                        @foreach($histories as $index => $history)
-                            <div class="border-l-4 border-sky-500 p-4 bg-gray-50">
-                                <h2 class="text-xl font-semibold text-gray-800">Diagnosa #{{ $index + 1 }}</h2>
-                                <p class="mt-2 text-lg text-gray-700">Tanggal: {{ $history->created_at->format('d-m-Y H:i') }}</p>
-                                <p class="mt-2 text-gray-700">Penyakit yang Diduga: {{ $history->disease }}</p>
-                                <h3 class="mt-2 text-lg font-medium text-gray-700">Solusi:</h3>
-                                <ul class="list-disc pl-5">
-                                    @foreach(explode("; ", $history->solution) as $solution)
-                                        <li class="text-gray-700">{{ $solution }}</li>
-                                    @endforeach
-                                </ul>
-                                
-                            </div>
-                        @endforeach
+                    @foreach($histories->sortBy('created_at') as $index => $history)
+                        <div class="border-l-4 border-sky-500 p-4 bg-gray-50">
+                            <h2 class="text-xl font-semibold text-gray-800">Diagnosa #{{ $index + 1 }}</h2>
+                            <p class="mt-2 text-lg text-gray-700">Tanggal: {{ $history->created_at->format('d-m-Y H:i') }}</p>
+                            <p class="mt-2 text-gray-700">Penyakit yang Diduga: {{ $history->disease }}</p>
+                            <h3 class="mt-2 text-lg font-medium text-gray-700">Solusi:</h3>
+                            <ul class="list-disc pl-5">
+                                @foreach(explode("; ", $history->solution) as $solution)
+                                    <li class="text-gray-700">{{ $solution }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endforeach
                     @endif
                 </div>
             </div>
