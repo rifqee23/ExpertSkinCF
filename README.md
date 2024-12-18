@@ -1,66 +1,140 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
-
 <p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+  <a href="#">
+    <img src="public/assets/img/logo.png" alt="Logo ExpertSkinCF" height="128">
+    <h1 align="center">Wolf Field - Sistem Reservasi Lapangan Futsal</h1>
+  </a>
 </p>
 
-## About Laravel
+Wolf Field adalah aplikasi berbasis web yang memudahkan pengguna dalam melakukan reservasi lapangan futsal. Aplikasi ini dilengkapi dengan berbagai fitur untuk manajemen lapangan, pemesanan, pembayaran, serta riwayat reservasi yang dapat diakses oleh admin dan pengguna.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+---
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Fitur
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Fitur Pengguna
+- **Beranda**: Pengguna dapat mengakses halaman utama aplikasi yang berisi informasi mengenai sistem pakar dan cara penggunaannya.
+- **Diagnosis**: Pengguna dapat melakukan diagnosis kondisi kulit berdasarkan gejala yang dialami dengan memilih jawaban sesuai dengan gejala yang muncul.
+- **Melihat Akurasi**: Setelah diagnosis selesai, pengguna dapat melihat tingkat akurasi dari hasil diagnosis yang diberikan oleh sistem.
+- **Tes Ulang**: Pengguna dapat mengulang tes diagnosis jika diperlukan untuk mendapatkan hasil yang lebih akurat.
+- **Melihat Riwayat**: Pengguna dapat melihat riwayat diagnosis yang telah dilakukan sebelumnya.
+- **Login dan Logout**: Pengguna dapat login untuk mengakses aplikasi dan logout setelah selesai menggunakan aplikasi.
 
-## Learning Laravel
+## Prasyarat
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Sebelum memulai, pastikan Anda telah memenuhi persyaratan berikut:
+- PHP >= 8.0
+- Composer
+- Laravel 10
+- MySQL atau database lain yang didukung Laravel
+- Node.js (untuk pengelolaan assets dan frontend)
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+---
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## Instalasi
 
-## Laravel Sponsors
+### 1. Clone Repository
+Clone repository Wolf Field ke dalam direktori lokal Anda:
+```bash
+git clone https://github.com/username/ExpertSkinCF.git
+```
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
 
-### Premium Partners
+### 2. Instal Dependensi
+Masuk ke direktori proyek dan install dependensi menggunakan Composer:
+```bash
+cd ExpertSkinCF
+composer install
+```
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+Install dependensi frontend menggunakan npm:
+```bash
+npm install
+```
 
-## Contributing
+### 3. Konfigurasi .env
+Salin file `.env.example` menjadi `.env`:
+```bash
+cp .env.example .env
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Buka file `.env` dan sesuaikan konfigurasi database Anda:
+```env
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=nama_database
+DB_USERNAME=root
+DB_PASSWORD=
+```
 
-## Code of Conduct
+### 4. Generate Kunci Aplikasi
+Jalankan perintah berikut untuk menghasilkan kunci aplikasi:
+```bash
+php artisan key:generate
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### 5. Migrasi dan Seeding Database
+Jalankan migrasi untuk membuat tabel-tabel yang diperlukan di database:
+```bash
+php artisan migrate
+```
 
-## Security Vulnerabilities
+Jika Anda ingin mengisi database dengan data dummy, jalankan:
+```bash
+php artisan db:seed
+```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### 6. Menjalankan Aplikasi
+Jalankan server lokal menggunakan Npm:
+```bash
+npm run dev
+```
+Akses aplikasi di browser pada `http://localhost:8000`.
 
-## License
+---
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## Penggunaan
+
+### 1. Registrasi dan Login
+Pengguna dapat melakukan registrasi dan login menggunakan email dan password untuk mengakses aplikasi. Setelah login, pengguna dapat mulai menggunakan fitur diagnosis.
+
+### 2. Diagnosis
+Pengguna dapat memilih gejala yang dialami untuk mendapatkan diagnosis terkait kondisi kulit mereka menggunakan metode Certainty Factor.
+
+### 3. Melihat Akurasi
+Setelah diagnosis selesai, pengguna dapat melihat tingkat akurasi dari hasil yang diberikan oleh sistem berdasarkan gejala yang dipilih.
+
+### 4. Tes Ulang
+Jika pengguna ingin mencoba tes ulang untuk memperoleh hasil yang lebih akurat, mereka dapat mengulang proses diagnosis.
+
+### 5. Melihat Riwayat
+Pengguna dapat melihat riwayat diagnosis yang telah dilakukan sebelumnya melalui halaman riwayat.
+
+---
+
+## Teknologi yang Digunakan
+- **Backend**: Laravel 10
+- **Frontend**: Tailwind CSS, Blade
+- **Database**: MySQL
+- **Queue**: Laravel Queues untuk pemrosesan background
+
+---
+
+## Kontribusi
+
+Terima kasih telah mempertimbangkan untuk berkontribusi pada proyek ini! Anda dapat mengajukan pull request untuk meningkatkan aplikasi ini. Pastikan untuk mengikuti pedoman kontribusi yang ada dalam [dokumen kontribusi Laravel](https://laravel.com/docs/contributions).
+
+---
+
+## Lisensi
+
+ExpertSkinCF menggunakan lisensi **MIT**. Lihat file [LICENSE](LICENSE) untuk detail lebih lanjut.
+
+---
+
+## Kontak
+
+Jika Anda memiliki pertanyaan atau saran, silakan hubungi kami melalui email di: `support@expertskincf.com`.
+```
+
+README ini sudah disusun dengan lebih rapi, jelas, dan terstruktur agar memudahkan pemahaman pembaca tentang aplikasi, fitur-fitur yang disediakan, dan instruksi penggunaannya. Pastikan untuk mengganti informasi yang relevan seperti URL repositori dan email kontak sesuai dengan kebutuhan Anda.
