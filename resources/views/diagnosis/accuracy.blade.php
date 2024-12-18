@@ -27,6 +27,11 @@
                         @endforeach
                     </ul>
 
+                    <!-- Tambahkan catatan di sini -->
+                    <p class="mt-4 text-gray-600 text-center">
+                        <strong>Catatan:</strong> Untuk mendapatkan hasil yang lebih akurat, kami menyarankan Anda untuk melakukan diagnosis beberapa kali.
+                    </p>
+
                     <div class="mt-6 text-center">
                         <form action="{{ route('diagnosis.delete') }}" method="POST" style="display:inline;">
                             @csrf

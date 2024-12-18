@@ -17,7 +17,7 @@
         class="block md:inline-block hover:text-sky-300 px-3 py-3 md:border-none {{ Route::currentRouteName() == 'diagnosis.form' || Request::is('diagnosis*') ? 'bg-sky-700 rounded text-white' : '' }}">
          Diagnosis
         </a>
-        <a href="{{ route('riwayat') }}" class="block md:inline-block hover:text-sky-300 px-3 py-3 md:border-none {{ Request::is('*#riwayat') ? 'bg-sky-700 rounded text-white' : '' }}">Riwayat</a>
+        <a href="{{ route('riwayat.history') }}" class="block md:inline-block hover:text-sky-300 px-3 py-3 md:border-none {{ Route::currentRouteName() == 'riwayat.history' || Request::is('riwayat*')  ? 'bg-sky-700 rounded text-white' : '' }}">Riwayat</a>
     </div>
 
     <div class="toggle w-full text-end hidden md:flex md:w-auto px-2 py-2 md:rounded">

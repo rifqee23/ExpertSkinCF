@@ -47,26 +47,16 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::post('/diagnosis', [DiagnosisController::class, 'generateResult'])->name('diagnosis.generate');
 
-    Route::get('/riwayat', function () {
-        // Data contoh untuk riwayat diagnosa
-        $diagnosisHistory = [
-            [
-                'disease' => 'Penyakit A',
-                'date' => '2024-12-12',
-                'symptoms' => ['Gejala 1', 'Gejala 2', 'Gejala 3'],
-                'solutions' => ['Solusi 1', 'Solusi 2']
-            ],
-            [
-                'disease' => 'Penyakit B',
-                'date' => '2024-12-10',
-                'symptoms' => ['Gejala 1', 'Gejala 2'],
-                'solutions' => ['Solusi 1', 'Solusi 2']
-            ]
-        ];
+  
 
-        // Mengirim data ke tampilan riwayat
-        return view('riwayat.riwayat', compact('diagnosisHistory'));
-    })->name('riwayat');
+    Route::get('/riwayat', [DiagnosisController::class, 'showHistory'])->name('riwayat.history');
+
+    Route::get('/akurasi', [DiagnosisController::class, 'showAccuracy'])->name('diagnosis.showAccuracy');
+
+
+Route::post('/diagnosis/delete', [DiagnosisController::class, 'delete'])->name('diagnosis.delete');
+
+
 });
 
 
@@ -74,7 +64,4 @@ Route::middleware('admin')->prefix('admin')->group(function () {
     Route::get('/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
 });
 
-Route::get('/akurasi', [DiagnosisController::class, 'showAccuracy'])->name('diagnosis.showAccuracy');
 
-
-Route::post('/diagnosis/delete', [DiagnosisController::class, 'delete'])->name('diagnosis.delete');
