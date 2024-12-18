@@ -39,8 +39,21 @@ class DiagnosisController extends Controller
         $disease = Disease::where('name', $diseaseName)->first();
         if ($disease) {
             $solutions[$diseaseName] = $disease->solutions; 
+
+            
+            $res = $solutions[$diseaseName]->pluck('solution')->toArray();
+            
+
+            // Simpan ke tabel history
+            \App\Models\History::create([
+                'disease' => $diseaseName,
+                'solution' => implode(' ; ', $res), // Menggabungkan solusi menjadi string
+            ]);
+
+            
         }
     }
+    
 
         return view('diagnosis.result', ['diseases' => $matchedDiseases, 'result' => $result, 'solutions' => $solutions]);
     }
@@ -322,6 +335,12 @@ class DiagnosisController extends Controller
     }
 
     return redirect()->route('diagnosis.form')->with('success', 'Data berhasil dihapus dan kembali ke halaman diagnosis.');
+}
+
+public function showHistory()
+{
+    $histories = \App\Models\History::orderBy('created_at', 'desc')->get();
+    return view('riwayat.history', compact('histories'));
 }
 
 }
