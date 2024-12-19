@@ -1,11 +1,12 @@
 <p align="center">
   <a href="#">
     <img src="public/assets/img/logo.png" alt="Logo ExpertSkinCF" height="128">
-    <h1 align="center">Wolf Field - Sistem Reservasi Lapangan Futsal</h1>
+    <h1 align="center">ExpertSkinCF - Sistem Pakar Diagnosa Kesehatan dan Estetika Kulit Wanita</h1>
   </a>
 </p>
 
-Wolf Field adalah aplikasi berbasis web yang memudahkan pengguna dalam melakukan reservasi lapangan futsal. Aplikasi ini dilengkapi dengan berbagai fitur untuk manajemen lapangan, pemesanan, pembayaran, serta riwayat reservasi yang dapat diakses oleh admin dan pengguna.
+ExpertSkinCF adalah aplikasi berbasis web yang menggunakan metode **Certainty Factor** untuk memberikan diagnosis terkait kesehatan dan estetika kulit wanita. Aplikasi ini menyediakan fitur bagi pengguna untuk melakukan diagnosis kulit, melihat hasil akurasi diagnosis, mengulang tes, serta melihat riwayat diagnosis.
+
 
 ---
 
@@ -33,7 +34,7 @@ Sebelum memulai, pastikan Anda telah memenuhi persyaratan berikut:
 ## Instalasi
 
 ### 1. Clone Repository
-Clone repository Wolf Field ke dalam direktori lokal Anda:
+Clone repository ExpertSkinCF ke dalam direktori lokal Anda:
 ```bash
 git clone https://github.com/username/ExpertSkinCF.git
 ```
