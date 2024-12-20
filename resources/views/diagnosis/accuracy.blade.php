@@ -27,22 +27,32 @@
                         @endforeach
                     </ul>
 
-                    <!-- Tambahkan catatan di sini -->
                     <p class="mt-4 text-gray-600 text-center">
                         <strong>Catatan:</strong> Untuk mendapatkan hasil yang lebih akurat, kami menyarankan Anda untuk melakukan diagnosis beberapa kali.
                     </p>
-
-                    <div class="mt-6 text-center">
-                        <form action="{{ route('diagnosis.delete') }}" method="POST" style="display:inline;">
-                            @csrf
-                            <button type="submit" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-6 rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50">
-                                Reset dan Kembali
-                            </button>
-                        </form>
-                    </div>
                 @else
                     <p class="text-center text-gray-600 text-lg">Tidak ada data akurasi yang tersedia.</p>
                 @endif
+
+                <div class="mt-6 text-center flex flex-wrap justify-center gap-4">
+                    <!-- Tombol Kembali ke Home -->
+                    <a href="{{ url('/') }}" class="bg-sky-500 hover:bg-sky-700 text-white font-bold py-2 px-6 rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-opacity-50 w-full md:w-auto">
+                        Kembali
+                    </a>
+                
+                    <!-- Tombol Tes Ulang -->
+                    <a href="{{ route('diagnosis.confirm') }}" class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-6 rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-50 w-full md:w-auto">
+                        Tes Ulang
+                    </a>
+                
+                    <!-- Tombol Reset dan Kembali -->
+                    <form action="{{ route('diagnosis.delete') }}" method="POST" style="display:inline;">
+                        @csrf
+                        <button type="submit" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-6 rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50 w-full md:w-auto">
+                            Reset dan Kembali
+                        </button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
