@@ -16,8 +16,9 @@
     <div id="mobile-menu" class="toggle hidden w-full md:w-auto md:flex text-right text-bold mt-5 md:mt-0 md:border-none">
         <a href="{{ url('/') }}#home" class="block md:inline-block hover:text-sky-300 px-3 py-3 md:border-none {{ Request::is('/') ? 'bg-sky-700 rounded text-white' : '' }}">Beranda</a>
         <a href="{{ route('diagnosis.confirm') }}" 
-           class="block md:inline-block hover:text-sky-300 px-3 py-3 md:border-none {{ Route::currentRouteName() == 'diagnosis.form' || Request::is('diagnosis*') ? 'bg-sky-700 rounded text-white' : '' }}">
-            Diagnosis
+            class="block md:inline-block hover:text-sky-300 px-3 py-3 md:border-none 
+            {{ Route::currentRouteName() == 'diagnosis.form' || Route::currentRouteName() == 'diagnosis.showAccuracy' || Request::is('diagnosis*') ? 'bg-sky-700 rounded text-white' : '' }}">
+                Diagnosis
         </a>
         <a href="{{ route('riwayat.history') }}" 
            class="block md:inline-block hover:text-sky-300 px-3 py-3 md:border-none {{ Route::currentRouteName() == 'riwayat.history' || Request::is('riwayat*')  ? 'bg-sky-700 rounded text-white' : '' }}">

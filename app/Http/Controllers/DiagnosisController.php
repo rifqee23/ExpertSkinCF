@@ -334,7 +334,7 @@ class DiagnosisController extends Controller
         unlink($filePath); 
     }
 
-    return redirect()->route('diagnosis.form')->with('success', 'Data berhasil dihapus dan kembali ke halaman diagnosis.');
+    return redirect()->route('diagnosis.confirm')->with('success', 'Data berhasil dihapus dan kembali ke halaman diagnosis.');
 }
 
 public function showHistory()
