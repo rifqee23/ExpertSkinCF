@@ -12,13 +12,10 @@ class BotManController extends Controller
     {
      $botman = app('botman');
         
-        // Listen for any message
      $botman->hears('{message}', function($botman, $message) {
-      // Convert the message to lowercase to handle case insensitivity
       $botman->reply('Halo! Saya adalah chatbot yang dapat membantu Anda dengan diagnosis wajah. Mari kita mulai!');
 
             $message = strtolower($message);
-            // If the user says 'hi', start a conversation to ask for their name
       if ($message == 'hi') {
        $this->askName($botman);
       } else if ($message == 'siapa nama kamu?' || $message == 'siapa nama kamu' || $message == 'siapa nama anda?' || $message == 'siapa nama anda' || $message == 'nama kamu siapa?' || $message == 'nama kamu siapa' || $message == 'nama anda siapa?' || $message == 'nama anda siapa' || $message == 'kamu siapa?' || $message == 'kamu siapa') {
@@ -34,13 +31,9 @@ class BotManController extends Controller
     
     public function askName($botman)
     {
-     // For fewer questions, you can use the inline conversation approach as shown below. Alternatively, use a dedicated conversation class for multi-step conversations
      $botman->ask('Siapa nama kamu?', function(Answer $answer, $conversation) {
-            // Capture the user's answer
       $name = $answer->getText();
-            // Respond with a personalized message
       $this->say('Senang bertemu dengan mu, ' . $name);
-      //Continue inline conversation.
       $conversation->ask('Apa keluhan anda.', function(Answer $answer, $conversation){
        $disease = $answer->getText();
        if (strpos($disease, 'jerawat') !== false) {
@@ -62,6 +55,18 @@ class BotManController extends Controller
         $conversation->say('1. Gunakan pelembap yang cocok untuk kulit kering.<br>' .
             '2. Hindari mencuci wajah dengan air panas.<br>' . 
             '3. Pertimbangkan untuk menggunakan humidifier di rumah.');
+            $conversation->say('Semoga saran ini bermanfaat. Silakan gunakan aplikasi kami untuk mendiagnosa lebih lanjut!');
+    }elseif (stripos($disease, 'gatal') !== false) {
+        $conversation->say('Gatal pada wajah bisa sangat mengganggu. Berikut adalah beberapa saran:');
+        $conversation->say('1. Hindari menggaruk area yang gatal.<br>' .
+            '2. Gunakan krim atau salep yang menenangkan.<br>' . 
+            '3. Jika gatal berlanjut, sebaiknya konsultasikan dengan dokter.');
+            $conversation->say('Semoga saran ini bermanfaat. Silakan gunakan aplikasi kami untuk mendiagnosa lebih lanjut!');
+    } elseif (stripos($disease, 'flek hitam') !== false) {
+        $conversation->say('Flek hitam bisa disebabkan oleh paparan sinar matahari. Berikut adalah beberapa saran:');
+        $conversation->say('1. Gunakan tabir surya setiap hari.<br>' .
+            '2. Pertimbangkan untuk menggunakan produk yang mengandung bahan pencerah kulit.<br>' . 
+            '3. Jika flek hitam berlanjut, sebaiknya konsultasikan dengan dokter.');
             $conversation->say('Semoga saran ini bermanfaat. Silakan gunakan aplikasi kami untuk mendiagnosa lebih lanjut!');
     } else {
         $conversation->say('Saya tidak memiliki saran khusus untuk keluhan tersebut. Silakan anda menggunakan aplikasi kami untuk mendiagnosa lebih lanjut. Atau konsultasikan dengan dokter untuk diagnosis yang lebih tepat.');
