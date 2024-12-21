@@ -30,9 +30,8 @@ class BotManController extends Controller
      });
      $botman->listen();
     }
-    /**
-     * Ask the user for their name when they say 'hi'.
-     */
+   
+    
     public function askName($botman)
     {
      // For fewer questions, you can use the inline conversation approach as shown below. Alternatively, use a dedicated conversation class for multi-step conversations

@@ -5,7 +5,6 @@
 @section('content')
     @include('components.navbar')
 
-
     <!-- Hero Section -->
     <div id="home" class="relative bg-cover bg-center h-screen" style="background-image: url('/assets/img/home.jpg');">
         <!-- Overlay -->
