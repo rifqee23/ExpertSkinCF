@@ -64,4 +64,6 @@ Route::middleware('admin')->prefix('admin')->group(function () {
     Route::get('/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
 });
 
+Route::match(['get', 'post'], '/botman', 'App\Http\Controllers\BotManController@handle');
+
 
