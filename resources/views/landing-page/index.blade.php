@@ -120,7 +120,7 @@
                     <img src="assets/img/yunnisa.png" alt="Anggota Tim 2" class="object-top w-24 h-24 sm:w-32 sm:h-32 object-cover rounded-full">
                 </div>
                 <div class="p-6 text-center">
-                    <h3 class="text-lg font-semibold text-sky-700">Yunnisa Diah P</h3>
+                    <h3 class="text-lg font-semibold text-sky-700">Yunnisa Diah Pratiwi</h3>
                     <p class="text-sky-600 font-light">Front - End</p>
                     <p class="mt-4 text-gray-600">"Life is too short to stress, just say 'kocak kocak' and leave."</p>
                 </div>
